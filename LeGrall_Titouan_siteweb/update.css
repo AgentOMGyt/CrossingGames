@@ -1,0 +1,148 @@
+* {
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    scroll-behavior: smooth;
+}
+
+#pageBody {
+    background: #FFC787;
+}
+
+#logo {
+    min-width: 180px;
+    max-width: 398px;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    width: 20%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Niveau supérieur */
+}
+
+#logo:hover + .info {
+    translate: 0px 0px;
+}
+
+.info {
+    padding: 20px 20px;
+    width: 10%;
+    background-color: rgb(243, 181, 109);
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    transition: translate 1s;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    translate: 0px -200px;
+}
+
+.text-info {
+    text-align: center;
+    color: rgb(214, 139, 52);
+}
+
+#hotbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Initialement cachée */
+    background-color: rgb(243, 183, 104);
+    z-index: 999; /* Niveau inférieur */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Espacement des côtés */
+    box-shadow: 0px 8px 20px 3px #f3ba79;
+    box-sizing: border-box; /* Inclure les paddings dans les dimensions */
+}
+
+#hotbar a {
+    position: relative; /* Position relative pour déplacer chaque bouton */
+    background: linear-gradient(180deg, rgba(252,210,162,1) 0%, rgba(252,193,126,1) 100%);
+    color: #DE9F58;
+    border: 2px solid #DE9F58;
+    border-radius: 15px;
+    padding: 15px 7%;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1; /* Invisibles au départ */
+    text-decoration: none;
+}
+
+#hotbar a:hover {
+    color: #ffffff;
+}
+
+.button {
+    overflow: hidden; /* Assurez-vous que le reflet reste dans les limites du lien */
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%; /* Le reflet commence hors de l'élément */
+    width: 50%;
+    height: 100%;
+    background: rgba(248, 245, 216, 0.767); /* Couleur semi-transparente pour le reflet */
+    transform: skewX(-45deg); /* Inclinaison du reflet */
+    filter: blur(15px);
+    transition: none;
+}
+
+.button:hover::before {
+    animation: flash 0.8s ease; /* Lancer l'animation au survol */
+}
+
+@keyframes flash {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 120%;
+    }
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+#content table {
+    width: 100%;
+}
+
+#content caption {
+    font-size: 30px;
+    color: rgb(214, 139, 52);
+    margin-bottom: 50px;
+}
+
+#content thead {
+    font-size: 22px;
+    color: rgb(214, 139, 52);
+}
+
+#content th {
+    color: rgb(248, 221, 191);
+}
+
+#content td {
+    color: rgb(248, 221, 191);
+}
+
+#content table {
+    background-color: rgb(236, 166, 101);
+    border-radius: 20px;
+    margin: 0px 50px;
+    padding: 50px 20px;
+    font-size: 16px;
+}
