@@ -133,7 +133,33 @@ h1 {
 
 #CrossiBird-vote {
     width: 50%;
+    animation: mouvement 2s linear infinite;
 }
+
+/* Annimation Bird */
+  @keyframes mouvement {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }
 
 #vote-button-content {
     display: flex;

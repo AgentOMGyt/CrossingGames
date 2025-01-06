@@ -172,10 +172,34 @@
 
 #container1 {
     flex-direction: row-reverse;
+    animation: slide-gauche; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-gauche {
+	0% {
+		translate: -100% 0%;
+	}
+
+	25% {
+		translate: 0% 0%;
+	}
 }
 
 #container2 {
     flex-direction: row;
+    animation: slide-droite; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-droite {
+	0% {
+		translate: 100% 0%;
+	}
+
+	25% {
+		translate: 0% 0%;
+	}
 }
 
 #content-text {
@@ -225,7 +249,7 @@
     object-fit: scale-down;
     min-width: 200px;
 }
-
+  
 /* DECORATION */
 #déco_1 {
     opacity: 0.5;
@@ -233,6 +257,22 @@
     right: 0px;
     width: 500px;
     margin-top: -85%;
+    animation: slide-bas_sp1; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp1 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	80% {
+		transform: translate(0%, 0%);
+    }
+    
+    100% {
+		transform: translate(0%, 0%);
+	}
 }
 
 /* DECORATION */
@@ -242,6 +282,22 @@
     width: 650px;
     margin-top: -50%;
     position: absolute;
+    animation: slide-bas_sp2; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp2 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	50% {
+		transform: translate(0%, 0%);
+    }
+    
+    100% {
+		transform: translate(0%, 0%);
+	}
 }
 
 #transition-frame {
@@ -267,18 +323,22 @@
     font-size: 30px;
     display: flex;
     justify-content: center;
+    animation: slide-bas; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
 }
 
 #trailer {
     width: 75%;
     left: 50%;
     right: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 90%);
     border-radius: 2%;
     z-index: 0;
     position: absolute;
     margin-top: -35%;
     transition: all 1s;
+    animation: slide-bas; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
 }
 
 #trailer:hover {
@@ -287,6 +347,21 @@
 
 #trailer-content {
     margin-top: 90%;
+    
+}
+
+@keyframes slide-bas {
+	0% {
+		transform: translate(-50%, 90%);
+	}
+
+	25% {
+		transform: translate(-50%, -50%);
+    }
+    
+    100% {
+		transform: translate(-50%, -50%);
+	}
 }
 
 #bull {
@@ -330,7 +405,33 @@
     width: 30%;
     right: 0%;
     margin-top: 22%;
+    animation: mouvement 2s linear infinite;
 }
+
+/* Annimation Bird */
+  @keyframes mouvement {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }
 
 #etapes-join li {
     color: rgb(189, 121, 32);
@@ -367,4 +468,20 @@
 #déco_bottom {
     width: 100%;
     object-fit: cover;
+    animation: slide-bas_sp3; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp3 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	15% {
+		transform: translate(0%, 5%);
+    }
+    
+    100% {
+		transform: translate(0%, 5%);
+	}
 }
