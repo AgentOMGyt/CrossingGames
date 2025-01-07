@@ -1,0 +1,487 @@
+/* RÉINITIALISATION ET CONFIGURATION GLOBALE */
+* {
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    scroll-behavior: smooth;
+}
+
+/* FOND DU SITE */
+#pageBody {
+    background: #FCAB42;
+    transition: all 0.5s;
+}
+
+/* SECTION INTRODUCTION */
+#intro {
+    height: 100vh; /* Hauteur égale à celle de l'écran */
+    position: relative;
+    overflow: hidden;
+
+}
+
+#logo {
+    min-width: 180px;
+    max-width: 398px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Niveau supérieur */
+    transition: all 0.3s ease;
+}
+
+/* DECORATION */
+#deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover; /* Couvre tout l'écran sans déformation */
+    opacity: 1; /* Opacité initiale */
+    transition: opacity 0.3s ease, height 1s ease;
+}
+
+/* BARRE DE NAVIGATION */
+#hotbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Initialement cachée */
+    background-color: rgb(243, 183, 104);
+    z-index: 999; /* Niveau inférieur */
+    transition: height 0.3s ease; /* Animation fluide */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Espacement des côtés */
+    overflow: hidden; /* Cache les boutons avant l'animation */
+    box-shadow: 0px 8px 20px 3px #f3ba79;
+    box-sizing: border-box; /* Inclure les paddings dans les dimensions */
+}
+
+/* LIENS DANS LA BARRE */
+#hotbar a {
+    position: relative; /* Position relative pour déplacer chaque bouton */
+    background: linear-gradient(180deg, rgba(252,210,162,1) 0%, rgba(252,193,126,1) 100%);
+    color: #DE9F58;
+    border: 2px solid #DE9F58;
+    border-radius: 15px;
+    padding: 15px 7%;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateY(-100px); /* Position initiale plus haut */
+    opacity: 0; /* Invisibles au départ */
+    transition: transform 0.5s ease, opacity 0.5s ease,color 0.1s ease; /* Animation d'entrée */
+    text-decoration: none;
+}
+
+#hotbar a:hover {
+    color: #ffffff;
+}
+
+/* Conteneur bannière */
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* image bannière */
+#illu {
+    border-radius: 20px;
+    width: 80%;
+    max-width: 2000px;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* image du boutton */
+.playimage {
+    margin-top: -30px;
+    height: 80px;
+    position: absolute;
+    z-index: 0;
+    transition: box-shadow 1s ease,width 0.2s,margin-top 0.2s;
+}
+
+/* Lien cliquable */
+#playbutton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #f86a12;
+}
+
+#playbutton:hover .playimage {
+    box-shadow: 0px 0px 40px 10px rgb(247, 206, 72);
+}
+
+/* Texte du boutton */
+.textbutton {
+    z-index: 1;
+    margin-top: 0px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+/* Boutton Hotbar */
+.button {
+    overflow: hidden; /* Reflet reste dans les limites du lien */
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%; /* Le reflet commence hors de l'élément */
+    width: 50%;
+    height: 100%;
+    background: rgba(248, 245, 216, 0.767); /* Couleur semi-transparente pour le reflet */
+    transform: skewX(-45deg); /* Inclinaison du reflet */
+    filter: blur(15px);
+    transition: none;
+}
+
+.button:hover::before {
+    animation: flash 0.8s ease; /* Lancer l'animation au survol */
+}
+
+/* Annimation au hover */
+@keyframes flash {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 120%;
+    }
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    margin: 300px 20% 150px 20%;
+}
+
+#container1 {
+    flex-direction: row-reverse;
+    animation: slide-gauche; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-gauche {
+	0% {
+		translate: -100% 0%;
+	}
+
+	25% {
+		translate: 0% 0%;
+	}
+}
+
+#container2 {
+    flex-direction: row;
+    animation: slide-droite; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-droite {
+	0% {
+		translate: 100% 0%;
+	}
+
+	25% {
+		translate: 0% 0%;
+	}
+}
+
+#content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content-text h3 {
+    color:#C67518;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+#content-text p {
+    color:#E77B00;
+    font-weight: 400;
+    text-align: right;
+    font-size: 18px;
+}
+
+#content-text2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content-text2 h3 {
+    color:#C67518;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#content-text2 p {
+    color:#E77B00;
+    font-weight: 400;
+    text-align: left;
+    font-size: 18px;
+}
+
+.img-icon {
+    width: 1000px;
+    object-fit: scale-down;
+    min-width: 200px;
+}
+  
+/* DECORATION */
+#déco_1 {
+    opacity: 0.5;
+    position: absolute;
+    right: 0px;
+    width: 500px;
+    margin-top: -85%;
+    animation: slide-bas_sp1; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp1 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	80% {
+		transform: translate(0%, 0%);
+    }
+    
+    100% {
+		transform: translate(0%, 0%);
+	}
+}
+
+/* DECORATION */
+#déco_2 {
+    opacity: 0.5;
+    left: 0px;
+    width: 650px;
+    margin-top: -50%;
+    position: absolute;
+    animation: slide-bas_sp2; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp2 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	50% {
+		transform: translate(0%, 0%);
+    }
+    
+    100% {
+		transform: translate(0%, 0%);
+	}
+}
+
+#transition-frame {
+    object-fit: cover;
+    width: 100%;
+    z-index: 1;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    margin-top: 10%;
+}
+
+#title-trailer {
+    position: absolute;
+    z-index: 0;
+    margin-top: -65%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    color:#C67518;
+    font-weight: 700;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    animation: slide-bas; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+#trailer {
+    width: 75%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 90%);
+    border-radius: 2%;
+    z-index: 0;
+    position: absolute;
+    margin-top: -35%;
+    transition: all 1s;
+    animation: slide-bas; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+#trailer:hover {
+    width: 80%;
+}
+
+#trailer-content {
+    margin-top: 90%;
+    
+}
+
+@keyframes slide-bas {
+	0% {
+		transform: translate(-50%, 90%);
+	}
+
+	25% {
+		transform: translate(-50%, -50%);
+    }
+    
+    100% {
+		transform: translate(-50%, -50%);
+	}
+}
+
+#bull {
+    background-color: #FFC787;
+    left: 40%;
+    right: 60%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 2;
+    padding: 30px;
+    margin-top: 25%;
+    max-height: 300px;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#bull-text {
+    z-index: 2;
+    color:#C67518;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* DECORATION */
+#déco_3 {
+    position: absolute;
+    z-index: 2;
+    width: 30%;
+    opacity: 0.5;
+    margin-top: -10%;
+}
+
+#CrossiBird {
+    position: absolute;
+    z-index: 1;
+    width: 30%;
+    right: 0%;
+    margin-top: 22%;
+    animation: mouvement 2s linear infinite;
+}
+
+/* Annimation Bird */
+  @keyframes mouvement {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }
+
+#etapes-join li {
+    color: rgb(189, 121, 32);
+    margin-bottom: 10px;
+}
+
+#bottom-Illu {
+    object-fit: cover;
+    width: 100%;
+    margin-top: 70%;
+}
+
+.playimage {
+    margin-top: -30px;
+    height: 80px;
+    position: absolute;
+    z-index: 0;
+    transition: box-shadow 1s ease,width 0.2s,margin-top 0.2s;
+}
+
+#IPbutton:hover .playimage {
+    box-shadow: 0px 0px 40px 10px rgb(247, 206, 72);
+}
+
+#IPbutton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #f86a12;
+    margin-top: -20%;
+}
+
+#déco_bottom {
+    width: 100%;
+    object-fit: cover;
+    animation: slide-bas_sp3; /* Animation au scroll ( apparition ) */
+	animation-timeline: view();
+}
+
+@keyframes slide-bas_sp3 {
+	0% {
+		transform: translate(0%, 90%);
+	}
+
+	15% {
+		transform: translate(0%, 5%);
+    }
+    
+    100% {
+		transform: translate(0%, 5%);
+	}
+}
